@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Alex Vance | Academic Personal Website</title>
+    <title>Dr. Fangtian Zhong | Shandong University</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -15,14 +15,14 @@
                         primary: {
                             50: '#f0f7ff',
                             100: '#e0effe',
-                            600: '#2563eb',
-                            700: '#1d4ed8',
-                            800: '#1e40af',
-                            900: '#1e3a8a',
+                            600: '#1d4ed8',
+                            700: '#1e40af',
+                            800: '#1e3a8a',
+                            900: '#172554',
                         },
-                        accent: {
-                            500: '#0284c7',
-                            600: '#0369a1',
+                        sdu: {
+                            600: '#990000', /* SDU Maroon Accent */
+                            700: '#7a0000',
                         }
                     },
                     fontFamily: {
@@ -47,31 +47,30 @@
 </head>
 <body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 font-sans transition-colors duration-300 min-h-screen flex flex-col">
 
-    <!-- Navigation Bar -->
     <nav class="sticky top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <a href="#hero" class="font-bold text-lg text-slate-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition">
-                    Dr. Alex Vance
+                    Dr. Fangtian Zhong
                 </a>
 
                 <!-- Desktop Nav Items -->
                 <div class="hidden md:flex items-center space-x-6 text-sm font-medium">
                     <a href="#about" class="text-slate-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 transition">About</a>
-                    <a href="#news" class="text-slate-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 transition">News</a>
+                    <a href="#news" class="text-slate-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 transition">News & Awards</a>
                     <a href="#publications" class="text-slate-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 transition">Publications</a>
-                    <a href="#projects" class="text-slate-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 transition">Projects</a>
-                    <a href="#teaching" class="text-slate-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 transition">Teaching & Service</a>
+                    <a href="#group" class="text-slate-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 transition">Group</a>
+                    <a href="#service" class="text-slate-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 transition">Service</a>
                     <a href="#contact" class="text-slate-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 transition">Contact</a>
 
                     <!-- Dark Mode Toggle Button -->
-                    <button id="theme-toggle" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 focus:outline-none transition" aria-label="Toggle Mode">
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 focus:outline-none transition" aria-label="Toggle Theme">
                         <i id="theme-toggle-dark-icon" class="fa-solid fa-moon hidden"></i>
                         <i id="theme-toggle-light-icon" class="fa-solid fa-sun hidden"></i>
                     </button>
                 </div>
 
-                <!-- Mobile menu button -->
+                <!-- Mobile Menu Button -->
                 <div class="md:hidden flex items-center space-x-3">
                     <button id="theme-toggle-mobile" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
                         <i id="theme-toggle-dark-icon-mobile" class="fa-solid fa-moon hidden"></i>
@@ -84,206 +83,194 @@
             </div>
         </div>
 
-        <!-- Mobile Navigation Menu -->
+        <!-- Mobile Navigation Drawer -->
         <div id="mobile-menu" class="hidden md:hidden border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 pt-2 pb-4 space-y-2 text-sm font-medium">
             <a href="#about" class="block py-2 text-slate-600 dark:text-slate-300 hover:text-primary-600">About</a>
-            <a href="#news" class="block py-2 text-slate-600 dark:text-slate-300 hover:text-primary-600">News</a>
+            <a href="#news" class="block py-2 text-slate-600 dark:text-slate-300 hover:text-primary-600">News & Awards</a>
             <a href="#publications" class="block py-2 text-slate-600 dark:text-slate-300 hover:text-primary-600">Publications</a>
-            <a href="#projects" class="block py-2 text-slate-600 dark:text-slate-300 hover:text-primary-600">Projects</a>
-            <a href="#teaching" class="block py-2 text-slate-600 dark:text-slate-300 hover:text-primary-600">Teaching & Service</a>
+            <a href="#group" class="block py-2 text-slate-600 dark:text-slate-300 hover:text-primary-600">Group</a>
+            <a href="#service" class="block py-2 text-slate-600 dark:text-slate-300 hover:text-primary-600">Service</a>
             <a href="#contact" class="block py-2 text-slate-600 dark:text-slate-300 hover:text-primary-600">Contact</a>
         </div>
     </nav>
 
-    <!-- Main Content Container -->
+    <!-- Main Content Layout -->
     <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16">
 
-        <!-- Hero Section -->
-        <section id="hero" class="pt-6">
+        <section id="hero" class="pt-4">
             <div class="flex flex-col md:flex-row items-center md:items-start gap-8 lg:gap-12">
-                <!-- Avatar Profile Picture -->
+                <!-- Avatar / Profile Photo -->
                 <div class="relative shrink-0">
-                    <img class="w-44 h-44 sm:w-48 sm:h-48 rounded-full object-cover border-4 border-white dark:border-slate-800 shadow-xl" 
-                         src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600" 
-                         alt="Dr. Alex Vance"
-                         onerror="this.onerror=null; this.src='https://placehold.co/200x200/1e293b/ffffff?text=AV';">
-                    <span class="absolute bottom-2 right-2 bg-emerald-500 border-2 border-white dark:border-slate-900 w-4 h-4 rounded-full" title="Available for collaborations"></span>
+                    <img class="w-44 h-44 sm:w-48 sm:h-48 rounded-2xl object-cover border-4 border-white dark:border-slate-800 shadow-xl" 
+                         src="https://fangtian-zhong.github.io/images/bio-photo.jpg" 
+                         alt="Dr. Fangtian Zhong"
+                         onerror="this.onerror=null; this.src='https://placehold.co/200x200/1e293b/ffffff?text=FZ';">
+                    <span class="absolute bottom-2 right-2 bg-emerald-500 border-2 border-white dark:border-slate-900 w-4 h-4 rounded-full" title="Active in Research"></span>
                 </div>
 
-                <!-- Personal Info -->
+                <!-- Profile Header Details -->
                 <div class="flex-1 text-center md:text-left space-y-4">
                     <div>
                         <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-                            Dr. Alex Vance
+                            Dr. Fangtian Zhong (钟方天)
                         </h1>
-                        <p class="text-lg font-medium text-primary-600 dark:text-primary-400 mt-1">
-                            Assistant Professor of Computer Science
+                        <p class="text-lg font-semibold text-primary-600 dark:text-primary-400 mt-1">
+                            Professor / Associate Professor
                         </p>
-                        <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base">
-                            <i class="fa-solid fa-building-columns mr-1.5 text-slate-400"></i> Department of Computer Science & Engineering, Stanford University
+                        <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base font-medium">
+                            <i class="fa-solid fa-building-columns mr-1.5 text-sdu-600"></i> School of Computer Science & Technology, <strong>Shandong University (山东大学)</strong>
                         </p>
                     </div>
 
-                    <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl">
-                        Investigating the intersection of software engineering, automated program synthesis, and trustworthy AI systems. Dedicated to building scalable techniques that enhance code reliability, security, and developer productivity.
+                    <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed max-w-3xl">
+                        Dr. Fangtian Zhong's research focuses on <strong>Cybersecurity</strong>, <strong>Software Engineering</strong>, <strong>Program Analysis</strong>, and <strong>AI/ML for Software Security</strong>. He enjoys developing statistically and mathematically elegant solutions to software security challenges across various architectures, with a particular focus on native code analysis without source access.
                     </p>
 
-                    <!-- Quick Links & Social Buttons -->
+                    <!-- Quick Links & Contact Shortcuts -->
                     <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-2">
-                        <a href="mailto:alex.vance@example.edu" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-semibold bg-primary-600 hover:bg-primary-700 text-white shadow-sm transition">
+                        <a href="mailto:fangtian.zhong@sdu.edu.cn" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-semibold bg-primary-600 hover:bg-primary-700 text-white shadow-sm transition">
                             <i class="fa-regular fa-envelope"></i> Email
                         </a>
-                        <a href="#" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-semibold bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 transition">
-                            <i class="fa-solid fa-graduation-cap text-amber-500"></i> Scholar
+                        <a href="https://scholar.google.com/citations?user=m2a065YAAAAJ" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-semibold bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 transition">
+                            <i class="fa-solid fa-graduation-cap text-amber-500"></i> Google Scholar
                         </a>
-                        <a href="#" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-semibold bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 transition">
+                        <a href="https://github.com/fangtian-zhong" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-semibold bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 transition">
                             <i class="fa-brands fa-github"></i> GitHub
                         </a>
-                        <a href="#" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-semibold bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 transition">
-                            <i class="fa-brands fa-linkedin text-blue-600"></i> LinkedIn
-                        </a>
-                        <a href="#" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-semibold border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 transition">
-                            <i class="fa-regular fa-file-pdf text-red-500"></i> Curriculum Vitae
+                        <a href="#publications" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-semibold border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 transition">
+                            <i class="fa-solid fa-book-open text-blue-500"></i> Publications
                         </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- About & Research Interests Section -->
         <section id="about" class="pt-6 border-t border-slate-200 dark:border-slate-800">
-            <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">About Me</h2>
-            <div class="prose dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 leading-relaxed space-y-4">
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Biography & Background</h2>
+            <div class="prose dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 leading-relaxed space-y-4 text-sm sm:text-base">
                 <p>
-                    I am an Assistant Professor leading the <strong>Intelligent Software Systems Lab (ISSL)</strong>. Previously, I was a Postdoctoral Scholar at MIT CSAIL advised by Prof. Jane Doe, and completed my Ph.D. in Computer Science at Carnegie Mellon University.
+                    Dr. Fangtian Zhong is currently a faculty member at <strong>Shandong University (山东大学)</strong>. He earned his Ph.D. in Computer Science from <strong>The George Washington University</strong> in 2021. From 2021 to 2023, he worked as a postdoctoral scholar at <strong>The Pennsylvania State University (Penn State)</strong> and the <strong>University of Notre Dame</strong>. Previously, he served as an Assistant Professor at Montana State University.
                 </p>
                 <p>
-                    My research focuses on designing formal program analysis tools and leveraging Machine Learning for Code (Code ML) to make software systems safer, faster, and more maintainable. My lab works closely with industry collaborators to translate research prototypes into real-world developer tools.
+                    He has published two ESI 1% highly cited papers and received the <strong>Best Paper Award</strong> at IEEE CARS 2024 and <strong>Best Poster Award</strong> at IEEE S&P 2025. Additionally, he serves as an Associate Editor for <i>IEEE Transactions on Network and Service Management (TNSM)</i> and <i>IEEE Transactions on Industrial Informatics (TII)</i>.
                 </p>
             </div>
 
-            <!-- Key Research Areas Badges -->
+            <!-- Focus Badges -->
             <div class="mt-6">
-                <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-3">Key Research Areas</h3>
+                <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-3">Primary Research Domains</h3>
                 <div class="flex flex-wrap gap-2">
-                    <span class="px-3 py-1.5 rounded-full text-xs font-semibold bg-blue-100 dark:bg-blue-950/60 text-blue-800 dark:text-blue-300 border border-blue-200 dark:border-blue-800/50">
-                        <i class="fa-solid fa-code-compare mr-1.5"></i> Automated Software Engineering
+                    <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-blue-100 dark:bg-blue-950/60 text-blue-800 dark:text-blue-300 border border-blue-200 dark:border-blue-800/50">
+                        <i class="fa-solid fa-shield-halved mr-1.5"></i> Software Security & Binary Analysis
                     </span>
-                    <span class="px-3 py-1.5 rounded-full text-xs font-semibold bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/50">
-                        <i class="fa-solid fa-robot mr-1.5"></i> AI/ML for Code Generation
+                    <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/50">
+                        <i class="fa-solid fa-bug mr-1.5"></i> Automated Vulnerability Detection
                     </span>
-                    <span class="px-3 py-1.5 rounded-full text-xs font-semibold bg-purple-100 dark:bg-purple-950/60 text-purple-800 dark:text-purple-300 border border-purple-200 dark:border-purple-800/50">
-                        <i class="fa-solid fa-bug mr-1.5"></i> Program Analysis & Verification
+                    <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-purple-100 dark:bg-purple-950/60 text-purple-800 dark:text-purple-300 border border-purple-200 dark:border-purple-800/50">
+                        <i class="fa-solid fa-brain mr-1.5"></i> AI/ML for Cybersecurity
                     </span>
-                    <span class="px-3 py-1.5 rounded-full text-xs font-semibold bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-800/50">
-                        <i class="fa-solid fa-shield-halved mr-1.5"></i> Software Security
+                    <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-800/50">
+                        <i class="fa-solid fa-code mr-1.5"></i> Malware Classification & Unpacking
                     </span>
                 </div>
             </div>
         </section>
 
-        <!-- News / Updates Section -->
         <section id="news" class="pt-6 border-t border-slate-200 dark:border-slate-800">
-            <div class="flex items-center justify-between mb-6">
-                <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Recent News</h2>
-                <span class="text-xs font-medium text-slate-500 dark:text-slate-400">Updated Sep 2026</span>
-            </div>
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-6">Recent News & Honors</h2>
 
             <div class="relative border-l-2 border-slate-200 dark:border-slate-800 ml-3 space-y-6">
-                <!-- News Item 1 -->
-                <div class="relative pl-6 group">
+                <!-- News 1 -->
+                <div class="relative pl-6">
                     <div class="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-primary-600 border-2 border-white dark:border-slate-900"></div>
-                    <time class="text-xs font-semibold text-primary-600 dark:text-primary-400 uppercase tracking-wider">Aug 2026</time>
+                    <time class="text-xs font-semibold text-primary-600 dark:text-primary-400 uppercase tracking-wider">May 2025</time>
                     <p class="text-sm text-slate-700 dark:text-slate-300 mt-1">
-                        🎉 Paper on <i>"LLM-Assisted Automated Refactoring"</i> was accepted to <strong>ICSE 2027</strong>! Congrats to lead student author John Smith.
+                        🏆 Received the <strong>Best Poster Award</strong> at <strong>IEEE Symposium on Security and Privacy (IEEE S&P 2025)</strong>!
                     </p>
                 </div>
 
-                <!-- News Item 2 -->
-                <div class="relative pl-6 group">
+                <!-- News 2 -->
+                <div class="relative pl-6">
                     <div class="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-slate-400 dark:bg-slate-600 border-2 border-white dark:border-slate-900"></div>
-                    <time class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">May 2026</time>
+                    <time class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">2025</time>
                     <p class="text-sm text-slate-700 dark:text-slate-300 mt-1">
-                        🎤 Invited Keynote Speaker at the <i>International Workshop on Intelligent Code Analytics (IWICA 2026)</i>.
+                        📄 Paper on <i>"Unveiling Malware Visual Patterns: A Self-analysis Perspective"</i> accepted by <strong>IEEE Transactions on Information Forensics and Security (TIFS)</strong>.
                     </p>
                 </div>
 
-                <!-- News Item 3 -->
-                <div class="relative pl-6 group">
+                <!-- News 3 -->
+                <div class="relative pl-6">
                     <div class="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-slate-400 dark:bg-slate-600 border-2 border-white dark:border-slate-900"></div>
-                    <time class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Jan 2026</time>
+                    <time class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">2024</time>
                     <p class="text-sm text-slate-700 dark:text-slate-300 mt-1">
-                        🏆 Awarded NSF CAREER Grant ($550K) for research on self-healing software architectures.
+                        🏆 Awarded <strong>Best Paper Award</strong> at the <strong>IEEE Cyber Awareness and Research Symposium (CARS 2024)</strong>.
+                    </p>
+                </div>
+
+                <!-- News 4 -->
+                <div class="relative pl-6">
+                    <div class="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-slate-400 dark:bg-slate-600 border-2 border-white dark:border-slate-900"></div>
+                    <time class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">2024</time>
+                    <p class="text-sm text-slate-700 dark:text-slate-300 mt-1">
+                        📄 Paper <i>"Enhancing Malware Classification via Self-Similarity Techniques"</i> published in <strong>IEEE TIFS</strong>.
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- Publications Section -->
         <section id="publications" class="pt-6 border-t border-slate-200 dark:border-slate-800">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
                 <div>
-                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Publications</h2>
-                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">* Self/User highlighted in author lists.</p>
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Selected Publications</h2>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">* Corresponding Author (✉) / ESI Highly Cited Papers highlighted.</p>
                 </div>
 
-                <!-- Filter Controls & Search -->
+                <!-- Search and Filter Controls -->
                 <div class="flex flex-wrap items-center gap-2">
                     <div class="relative w-full sm:w-48">
-                        <input type="text" id="pub-search" placeholder="Search papers..." 
+                        <input type="text" id="pub-search" placeholder="Search publications..." 
                                class="w-full pl-8 pr-3 py-1.5 text-xs rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-primary-500">
                         <i class="fa-solid fa-magnifying-glass absolute left-2.5 top-2.5 text-slate-400 text-xs"></i>
                     </div>
                     <div class="inline-flex p-1 rounded-lg bg-slate-200 dark:bg-slate-800 text-xs font-medium">
                         <button class="pub-filter active px-2.5 py-1 rounded-md bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm" data-filter="all">All</button>
-                        <button class="pub-filter px-2.5 py-1 rounded-md text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white" data-filter="conference">Conferences</button>
                         <button class="pub-filter px-2.5 py-1 rounded-md text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white" data-filter="journal">Journals</button>
+                        <button class="pub-filter px-2.5 py-1 rounded-md text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white" data-filter="conference">Conferences</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Publication Items List -->
-            <div class="space-y-6" id="publications-list">
+            <!-- Publications Container -->
+            <div class="space-y-5" id="publications-list">
 
                 <!-- Pub 1 -->
-                <div class="pub-card p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800/40 hover:shadow-md transition" data-category="conference">
+                <div class="pub-card p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800/40 hover:shadow-md transition" data-category="journal">
                     <div class="flex items-start justify-between gap-2">
                         <span class="px-2.5 py-0.5 rounded text-[11px] font-bold uppercase tracking-wide bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300">
-                            Conference (ICSE '26)
+                            IEEE TIFS
                         </span>
-                        <span class="text-xs font-semibold text-slate-400">2026</span>
+                        <span class="text-xs font-semibold text-slate-400">2025</span>
                     </div>
                     <h3 class="text-base font-semibold text-slate-900 dark:text-white mt-2">
-                        Neural Static Analysis: Combining Deep Learning with Abstract Interpretation
+                        Unveiling Malware Visual Patterns: A Self-analysis Perspective
                     </h3>
                     <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1">
-                        John Smith, <strong>Alex Vance</strong>, and Maria Garcia
+                        <strong>Fangtian Zhong</strong>, Qin Hu, Yili Jiang, Jiaqi Huang, Xiuzhen Cheng
                     </p>
                     <p class="text-xs text-slate-500 dark:text-slate-400 italic mt-0.5">
-                        Proceedings of the 48th IEEE/ACM International Conference on Software Engineering (ICSE 2026)
+                        IEEE Transactions on Information Forensics and Security (TIFS), 2025
                     </p>
-
-                    <!-- Links & BibTeX Toggle -->
                     <div class="flex items-center gap-3 mt-3 text-xs">
-                        <a href="#" class="inline-flex items-center gap-1 text-primary-600 dark:text-primary-400 font-medium hover:underline">
-                            <i class="fa-regular fa-file-pdf"></i> PDF
-                        </a>
-                        <a href="#" class="inline-flex items-center gap-1 text-slate-600 dark:text-slate-300 font-medium hover:underline">
-                            <i class="fa-brands fa-github"></i> Code
-                        </a>
-                        <button onclick="toggleBibtex('bib-icse26')" class="inline-flex items-center gap-1 text-slate-600 dark:text-slate-300 font-medium hover:text-primary-600 transition">
+                        <button onclick="toggleBibtex('bib-tifs25')" class="inline-flex items-center gap-1 text-slate-600 dark:text-slate-300 font-medium hover:text-primary-600 transition">
                             <i class="fa-solid fa-quote-right"></i> BibTeX
                         </button>
                     </div>
-
-                    <!-- Collapsible BibTeX -->
-                    <div id="bib-icse26" class="hidden mt-3 p-3 bg-slate-100 dark:bg-slate-900 rounded-lg text-xs font-mono text-slate-700 dark:text-slate-300 overflow-x-auto relative">
-                        <button onclick="copyBibtex('bib-icse26-code')" class="absolute top-2 right-2 px-2 py-1 rounded bg-slate-200 dark:bg-slate-800 text-[10px] hover:bg-slate-300 dark:hover:bg-slate-700">Copy</button>
-                        <pre id="bib-icse26-code" class="bibtex-code">@inproceedings{smith2026neural,
-  title={Neural Static Analysis: Combining Deep Learning with Abstract Interpretation},
-  author={Smith, John and Vance, Alex and Garcia, Maria},
-  booktitle={Proceedings of the 48th IEEE/ACM International Conference on Software Engineering (ICSE)},
-  year={2026}
+                    <div id="bib-tifs25" class="hidden mt-3 p-3 bg-slate-100 dark:bg-slate-900 rounded-lg text-xs font-mono text-slate-700 dark:text-slate-300 overflow-x-auto relative">
+                        <pre class="bibtex-code">@article{zhong2025unveiling,
+  title={Unveiling Malware Visual Patterns: A Self-analysis Perspective},
+  author={Zhong, Fangtian and Hu, Qin and Jiang, Yili and Huang, Jiaqi and Cheng, Xiuzhen},
+  journal={IEEE Transactions on Information Forensics and Security},
+  year={2025}
 }</pre>
                     </div>
                 </div>
@@ -291,45 +278,31 @@
                 <!-- Pub 2 -->
                 <div class="pub-card p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800/40 hover:shadow-md transition" data-category="journal">
                     <div class="flex items-start justify-between gap-2">
-                        <span class="px-2.5 py-0.5 rounded text-[11px] font-bold uppercase tracking-wide bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300">
-                            Journal (TSE)
+                        <span class="px-2.5 py-0.5 rounded text-[11px] font-bold uppercase tracking-wide bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300">
+                            IEEE TIFS
                         </span>
-                        <span class="text-xs font-semibold text-slate-400">2025</span>
+                        <span class="text-xs font-semibold text-slate-400">2024</span>
                     </div>
                     <h3 class="text-base font-semibold text-slate-900 dark:text-white mt-2">
-                        Scalable Verification of Smart Contracts using Constraint Logic Programming
+                        Enhancing Malware Classification via Self-Similarity Techniques
                     </h3>
                     <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1">
-                        <strong>Alex Vance</strong> and David Miller
+                        <strong>Fangtian Zhong</strong>, Qin Hu, Yili Jiang, Jiaqi Huang, Dinghao Wu
                     </p>
                     <p class="text-xs text-slate-500 dark:text-slate-400 italic mt-0.5">
-                        IEEE Transactions on Software Engineering (TSE), Vol. 51, No. 4
+                        IEEE Transactions on Information Forensics and Security (TIFS), 2024
                     </p>
-
-                    <!-- Links & BibTeX Toggle -->
                     <div class="flex items-center gap-3 mt-3 text-xs">
-                        <a href="#" class="inline-flex items-center gap-1 text-primary-600 dark:text-primary-400 font-medium hover:underline">
-                            <i class="fa-regular fa-file-pdf"></i> PDF
-                        </a>
-                        <a href="#" class="inline-flex items-center gap-1 text-slate-600 dark:text-slate-300 font-medium hover:underline">
-                            <i class="fa-solid fa-database"></i> Dataset
-                        </a>
-                        <button onclick="toggleBibtex('bib-tse25')" class="inline-flex items-center gap-1 text-slate-600 dark:text-slate-300 font-medium hover:text-primary-600 transition">
+                        <button onclick="toggleBibtex('bib-tifs24')" class="inline-flex items-center gap-1 text-slate-600 dark:text-slate-300 font-medium hover:text-primary-600 transition">
                             <i class="fa-solid fa-quote-right"></i> BibTeX
                         </button>
                     </div>
-
-                    <!-- Collapsible BibTeX -->
-                    <div id="bib-tse25" class="hidden mt-3 p-3 bg-slate-100 dark:bg-slate-900 rounded-lg text-xs font-mono text-slate-700 dark:text-slate-300 overflow-x-auto relative">
-                        <button onclick="copyBibtex('bib-tse25-code')" class="absolute top-2 right-2 px-2 py-1 rounded bg-slate-200 dark:bg-slate-800 text-[10px] hover:bg-slate-300 dark:hover:bg-slate-700">Copy</button>
-                        <pre id="bib-tse25-code" class="bibtex-code">@article{vance2025scalable,
-  title={Scalable Verification of Smart Contracts using Constraint Logic Programming},
-  author={Vance, Alex and Miller, David},
-  journal={IEEE Transactions on Software Engineering (TSE)},
-  volume={51},
-  number={4},
-  pages={1012--1028},
-  year={2025}
+                    <div id="bib-tifs24" class="hidden mt-3 p-3 bg-slate-100 dark:bg-slate-900 rounded-lg text-xs font-mono text-slate-700 dark:text-slate-300 overflow-x-auto relative">
+                        <pre class="bibtex-code">@article{zhong2024enhancing,
+  title={Enhancing Malware Classification via Self-Similarity Techniques},
+  author={Zhong, Fangtian and Hu, Qin and Jiang, Yili and Huang, Jiaqi and Wu, Dinghao},
+  journal={IEEE Transactions on Information Forensics and Security},
+  year={2024}
 }</pre>
                     </div>
                 </div>
@@ -337,143 +310,166 @@
                 <!-- Pub 3 -->
                 <div class="pub-card p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800/40 hover:shadow-md transition" data-category="conference">
                     <div class="flex items-start justify-between gap-2">
-                        <span class="px-2.5 py-0.5 rounded text-[11px] font-bold uppercase tracking-wide bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300">
-                            Conference (PLDI '24)
+                        <span class="px-2.5 py-0.5 rounded text-[11px] font-bold uppercase tracking-wide bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300">
+                            IEEE CARS '24 (Best Paper Award)
                         </span>
                         <span class="text-xs font-semibold text-slate-400">2024</span>
                     </div>
                     <h3 class="text-base font-semibold text-slate-900 dark:text-white mt-2">
-                        Type-Guided Program Synthesis for Reactive Distributed Systems
+                        Improving Detection Accuracy of Data Poisoning Attacks
                     </h3>
                     <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1">
-                        <strong>Alex Vance</strong>, Robert Chen, and Jane Doe
+                        Sabrina Perry, Yili Jiang, <strong>Fangtian Zhong</strong>, Jiaqi Huang, Sohan Gyawali
                     </p>
                     <p class="text-xs text-slate-500 dark:text-slate-400 italic mt-0.5">
-                        ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI 2024)
+                        IEEE Cyber Awareness and Research Symposium (CARS 2024) — <span class="text-amber-600 dark:text-amber-400 font-bold">🏆 Best Paper Award</span>
                     </p>
+                </div>
 
-                    <!-- Links & BibTeX Toggle -->
-                    <div class="flex items-center gap-3 mt-3 text-xs">
-                        <a href="#" class="inline-flex items-center gap-1 text-primary-600 dark:text-primary-400 font-medium hover:underline">
-                            <i class="fa-regular fa-file-pdf"></i> PDF
-                        </a>
-                        <a href="#" class="inline-flex items-center gap-1 text-slate-600 dark:text-slate-300 font-medium hover:underline">
-                            <i class="fa-brands fa-github"></i> Code
-                        </a>
-                        <button onclick="toggleBibtex('bib-pldi24')" class="inline-flex items-center gap-1 text-slate-600 dark:text-slate-300 font-medium hover:text-primary-600 transition">
-                            <i class="fa-solid fa-quote-right"></i> BibTeX
-                        </button>
+                <!-- Pub 4 -->
+                <div class="pub-card p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800/40 hover:shadow-md transition" data-category="journal">
+                    <div class="flex items-start justify-between gap-2">
+                        <span class="px-2.5 py-0.5 rounded text-[11px] font-bold uppercase tracking-wide bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300">
+                            IEEE TC
+                        </span>
+                        <span class="text-xs font-semibold text-slate-400">2023</span>
                     </div>
+                    <h3 class="text-base font-semibold text-slate-900 dark:text-white mt-2">
+                        MalFox: Camouflaged Adversarial Malware Example Generation Based on Conv-GANs Against Black-Box Detectors
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1">
+                        <strong>Fangtian Zhong</strong>, Xiuzhen Cheng, Dongxiao Yu, Bei Gong, Shuaiwen Song, Jiguo Yu✉
+                    </p>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 italic mt-0.5">
+                        IEEE Transactions on Computers (TC), 2023
+                    </p>
+                </div>
 
-                    <!-- Collapsible BibTeX -->
-                    <div id="bib-pldi24" class="hidden mt-3 p-3 bg-slate-100 dark:bg-slate-900 rounded-lg text-xs font-mono text-slate-700 dark:text-slate-300 overflow-x-auto relative">
-                        <button onclick="copyBibtex('bib-pldi24-code')" class="absolute top-2 right-2 px-2 py-1 rounded bg-slate-200 dark:bg-slate-800 text-[10px] hover:bg-slate-300 dark:hover:bg-slate-700">Copy</button>
-                        <pre id="bib-pldi24-code" class="bibtex-code">@inproceedings{vance2024type,
-  title={Type-Guided Program Synthesis for Reactive Distributed Systems},
-  author={Vance, Alex and Chen, Robert and Doe, Jane},
-  booktitle={ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI)},
-  year={2024}
-}</pre>
+                <!-- Pub 5 -->
+                <div class="pub-card p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800/40 hover:shadow-md transition" data-category="journal">
+                    <div class="flex items-start justify-between gap-2">
+                        <span class="px-2.5 py-0.5 rounded text-[11px] font-bold uppercase tracking-wide bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300">
+                            IEEE TC
+                        </span>
+                        <span class="text-xs font-semibold text-slate-400">2022</span>
                     </div>
+                    <h3 class="text-base font-semibold text-slate-900 dark:text-white mt-2">
+                        Malware-on-the-Brain: Illuminating Malware Byte Codes with Images for Malware Classification
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1">
+                        <strong>Fangtian Zhong</strong>, Zekai Chen, Minghui Xu, Guoming Zhang, Dongxiao Yu, Xiuzhen Cheng✉
+                    </p>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 italic mt-0.5">
+                        IEEE Transactions on Computers (TC), 2022
+                    </p>
+                </div>
+
+                <!-- Pub 6 -->
+                <div class="pub-card p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800/40 hover:shadow-md transition" data-category="conference">
+                    <div class="flex items-start justify-between gap-2">
+                        <span class="px-2.5 py-0.5 rounded text-[11px] font-bold uppercase tracking-wide bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300">
+                            ACM CIKM '21
+                        </span>
+                        <span class="text-xs font-semibold text-slate-400">2021</span>
+                    </div>
+                    <h3 class="text-base font-semibold text-slate-900 dark:text-white mt-2">
+                        DCAP: Deep Cross Attentional Product Network for User Response Prediction
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1">
+                        Zekai Chen, <strong>Fangtian Zhong</strong>, Zhumin Chen, Xiao Zhang, Robert Pless, Xiuzhen Cheng✉
+                    </p>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 italic mt-0.5">
+                        Proceedings of the 30th ACM International Conference on Information and Knowledge Management (CIKM 2021)
+                    </p>
                 </div>
 
             </div>
         </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="pt-6 border-t border-slate-200 dark:border-slate-800">
-            <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-6">Research Projects & Tools</h2>
+        <section id="group" class="pt-6 border-t border-slate-200 dark:border-slate-800">
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-6">Group & Mentees</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Project 1 -->
-                <div class="p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800/40 flex flex-col justify-between hover:border-primary-500/50 transition">
-                    <div>
-                        <div class="flex items-center justify-between">
-                            <h3 class="text-base font-bold text-slate-900 dark:text-white">PyCheck-AI</h3>
-                            <a href="#" target="_blank" class="text-slate-400 hover:text-slate-700 dark:hover:text-white"><i class="fa-brands fa-github text-lg"></i></a>
-                        </div>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
-                            An open-source static analyzer driven by large language models to detect subtle concurrency bugs in Python asynchronous routines.
-                        </p>
-                    </div>
-                    <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex flex-wrap gap-1.5">
-                        <span class="px-2 py-0.5 rounded text-[10px] font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">Python</span>
-                        <span class="px-2 py-0.5 rounded text-[10px] font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">AST</span>
-                        <span class="px-2 py-0.5 rounded text-[10px] font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">LLM Benchmarks</span>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800/40 flex flex-col justify-between hover:border-primary-500/50 transition">
-                    <div>
-                        <div class="flex items-center justify-between">
-                            <h3 class="text-base font-bold text-slate-900 dark:text-white">SynthCode Engine</h3>
-                            <a href="#" target="_blank" class="text-slate-400 hover:text-slate-700 dark:hover:text-white"><i class="fa-brands fa-github text-lg"></i></a>
-                        </div>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
-                            A high-performance Rust framework for domain-specific programming language synthesis utilizing inductive logic programming.
-                        </p>
-                    </div>
-                    <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex flex-wrap gap-1.5">
-                        <span class="px-2 py-0.5 rounded text-[10px] font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">Rust</span>
-                        <span class="px-2 py-0.5 rounded text-[10px] font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">Formal Logic</span>
-                        <span class="px-2 py-0.5 rounded text-[10px] font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">WebAssembly</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Teaching & Academic Service Section -->
-        <section id="teaching" class="pt-6 border-t border-slate-200 dark:border-slate-800">
-            <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-6">Teaching & Academic Service</h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Teaching -->
-                <div class="space-y-4">
-                    <h3 class="text-lg font-semibold text-slate-900 dark:text-white flex items-center gap-2">
-                        <i class="fa-solid fa-chalkboard-user text-primary-600 dark:text-primary-400"></i> Teaching
+                <!-- Research Mentees -->
+                <div class="p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800/40">
+                    <h3 class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-3">
+                        <i class="fa-solid fa-user-graduate text-primary-600"></i> Current Students & Researchers
                     </h3>
-                    <ul class="space-y-3 text-xs sm:text-sm">
-                        <li class="p-3 rounded-lg bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800">
-                            <span class="font-semibold text-slate-900 dark:text-white">CS 5420: Automated Program Analysis</span>
-                            <p class="text-slate-500 dark:text-slate-400 text-xs">Instructor — Fall 2025, Fall 2026</p>
+                    <ul class="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                        <li class="flex items-center justify-between">
+                            <span><strong>András Necz</strong> (Ph.D. Student)</span>
+                            <span class="text-xs text-slate-400">2025–</span>
                         </li>
-                        <li class="p-3 rounded-lg bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800">
-                            <span class="font-semibold text-slate-900 dark:text-white">CS 2110: Data Structures & Algorithms</span>
-                            <p class="text-slate-500 dark:text-slate-400 text-xs">Co-Instructor — Spring 2025</p>
+                        <li class="flex items-center justify-between">
+                            <span><strong>Fengnian Zhao</strong> (Ph.D. Student)</span>
+                            <span class="text-xs text-slate-400">2025–</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span><strong>Shama Maganur</strong> (M.S. Student)</span>
+                            <span class="text-xs text-slate-400">2025–</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span><strong>Zhuoyun Qian</strong> (Undergrad Researcher)</span>
+                            <span class="text-xs text-slate-400">2024–</span>
                         </li>
                     </ul>
                 </div>
 
-                <!-- Academic Service -->
-                <div class="space-y-4">
-                    <h3 class="text-lg font-semibold text-slate-900 dark:text-white flex items-center gap-2">
-                        <i class="fa-solid fa-award text-primary-600 dark:text-primary-400"></i> Professional Service
+                <!-- Alumni Highlights -->
+                <div class="p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800/40">
+                    <h3 class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-3">
+                        <i class="fa-solid fa-briefcase text-emerald-600"></i> Selected Group Alumni
                     </h3>
-                    <div class="p-4 rounded-lg bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 space-y-3 text-xs sm:text-sm">
-                        <div>
-                            <span class="font-semibold text-slate-900 dark:text-white block">Program Committee (PC):</span>
-                            <p class="text-slate-600 dark:text-slate-400">ICSE (2026, 2027), FSE (2025), PLDI (2024)</p>
-                        </div>
-                        <div>
-                            <span class="font-semibold text-slate-900 dark:text-white block">Journal Reviewer:</span>
-                            <p class="text-slate-600 dark:text-slate-400">IEEE TSE, ACM TOSEM, Journal of Automated Reasoning</p>
-                        </div>
-                    </div>
+                    <ul class="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                        <li><strong>Luyang Xiong</strong> (B.S. Shandong University) → Joined Tencent</li>
+                        <li><strong>Simon Luong</strong> (B.S. Georgia Tech) → Joined Walt Disney Inc.</li>
+                        <li><strong>Cheng Peng</strong> (M.S. NYU) → Ph.D. Student at Purdue University</li>
+                        <li><strong>Hangfan Zhang</strong> (B.S. NJU) → Ph.D. Student at Penn State University</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
+        <section id="service" class="pt-6 border-t border-slate-200 dark:border-slate-800">
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-6">Professional Service & Editorial Roles</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Editorial Board -->
+                <div class="p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800/40 space-y-3">
+                    <h3 class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                        <i class="fa-solid fa-pen-nib text-primary-600"></i> Editorial Boards
+                    </h3>
+                    <ul class="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                        <li>• <strong>Associate Editor:</strong> IEEE Transactions on Network and Service Management (TNSM)</li>
+                        <li>• <strong>Associate Editor:</strong> IEEE Transactions on Industrial Informatics (TII)</li>
+                    </ul>
+                </div>
+
+                <!-- Technical Program Committee & Reviewer -->
+                <div class="p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800/40 space-y-3">
+                    <h3 class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                        <i class="fa-solid fa-check-double text-primary-600"></i> TPC & Journal Reviewer
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                        IEEE Transactions on Computers (TC), IEEE Transactions on Information Forensics and Security (TIFS), IEEE Transactions on Dependable and Secure Computing (TDSC), IEEE INFOCOM, ACM ASE.
+                    </p>
+                </div>
+            </div>
+        </section>
+
         <section id="contact" class="pt-6 border-t border-slate-200 dark:border-slate-800">
-            <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-6">Contact & Office</h2>
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-6">Contact & Location</h2>
 
             <div class="p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800/40 grid grid-cols-1 sm:grid-cols-3 gap-6 text-sm">
                 <div class="flex items-start gap-3">
                     <i class="fa-solid fa-location-dot text-primary-600 dark:text-primary-400 text-lg mt-0.5"></i>
                     <div>
-                        <span class="font-semibold text-slate-900 dark:text-white block">Office Location</span>
-                        <p class="text-slate-600 dark:text-slate-400 text-xs mt-1">Gates Computer Science Bldg<br>Room 402, Stanford University</p>
+                        <span class="font-semibold text-slate-900 dark:text-white block">Affiliation</span>
+                        <p class="text-slate-600 dark:text-slate-400 text-xs mt-1">
+                            School of Computer Science & Technology<br>
+                            Shandong University (山东大学)<br>
+                            Shandong, China
+                        </p>
                     </div>
                 </div>
 
@@ -481,15 +477,18 @@
                     <i class="fa-regular fa-envelope text-primary-600 dark:text-primary-400 text-lg mt-0.5"></i>
                     <div>
                         <span class="font-semibold text-slate-900 dark:text-white block">Email</span>
-                        <p class="text-slate-600 dark:text-slate-400 text-xs mt-1">alex.vance [at] stanford.edu</p>
+                        <p class="text-slate-600 dark:text-slate-400 text-xs mt-1">fangtian.zhong [at] sdu.edu.cn</p>
                     </div>
                 </div>
 
                 <div class="flex items-start gap-3">
-                    <i class="fa-regular fa-clock text-primary-600 dark:text-primary-400 text-lg mt-0.5"></i>
+                    <i class="fa-solid fa-graduation-cap text-primary-600 dark:text-primary-400 text-lg mt-0.5"></i>
                     <div>
-                        <span class="font-semibold text-slate-900 dark:text-white block">Office Hours</span>
-                        <p class="text-slate-600 dark:text-slate-400 text-xs mt-1">Tue & Thu 2:00 PM - 4:00 PM (or by appointment)</p>
+                        <span class="font-semibold text-slate-900 dark:text-white block">Profiles</span>
+                        <p class="text-slate-600 dark:text-slate-400 text-xs mt-1">
+                            <a href="https://scholar.google.com/citations?user=m2a065YAAAAJ" target="_blank" class="text-primary-600 hover:underline">Google Scholar</a> | 
+                            <a href="https://github.com/fangtian-zhong" target="_blank" class="text-primary-600 hover:underline">GitHub</a>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -497,11 +496,10 @@
 
     </main>
 
-    <!-- Footer -->
     <footer class="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-6 text-center text-xs text-slate-500 dark:text-slate-400">
         <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
-            <p>© <span id="current-year"></span> Dr. Alex Vance. All rights reserved.</p>
-            <p class="text-slate-400">Designed for modern academic presentation.</p>
+            <p>© <span id="current-year"></span> Dr. Fangtian Zhong. All rights reserved.</p>
+            <p class="text-slate-400">Shandong University | Computer Science & Cybersecurity</p>
         </div>
     </footer>
 
@@ -509,7 +507,7 @@
         // Set dynamic copyright year
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
-        // Mobile Menu Toggle Logic
+        // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
 
@@ -517,14 +515,13 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Close mobile menu on clicking nav link
         document.querySelectorAll('#mobile-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
             });
         });
 
-        // Theme Toggle (Dark / Light Mode) Logic
+        // Dark/Light Mode Switcher Logic
         const themeToggleBtn = document.getElementById('theme-toggle');
         const themeToggleBtnMobile = document.getElementById('theme-toggle-mobile');
         
@@ -533,7 +530,6 @@
         const darkIconMobile = document.getElementById('theme-toggle-dark-icon-mobile');
         const lightIconMobile = document.getElementById('theme-toggle-light-icon-mobile');
 
-        // Check theme preference
         if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
             lightIcon.classList.remove('hidden');
@@ -562,7 +558,7 @@
         themeToggleBtn.addEventListener('click', toggleTheme);
         themeToggleBtnMobile.addEventListener('click', toggleTheme);
 
-        // Publication BibTeX Toggle Function
+        // Toggle BibTeX display
         function toggleBibtex(id) {
             const el = document.getElementById(id);
             if (el) {
@@ -570,26 +566,7 @@
             }
         }
 
-        // Copy BibTeX Function using execCommand fallback
-        function copyBibtex(codeId) {
-            const codeEl = document.getElementById(codeId);
-            if (!codeEl) return;
-            
-            const textarea = document.createElement('textarea');
-            textarea.value = codeEl.innerText;
-            document.body.appendChild(textarea);
-            textarea.select();
-            
-            try {
-                document.execCommand('copy');
-                alert('BibTeX copied to clipboard!');
-            } catch (err) {
-                console.error('Failed to copy text', err);
-            }
-            document.body.removeChild(textarea);
-        }
-
-        // Publication Category Filtering Logic
+        // Search & Filter Publications
         const filterBtns = document.querySelectorAll('.pub-filter');
         const pubCards = document.querySelectorAll('.pub-card');
         const pubSearch = document.getElementById('pub-search');
