@@ -657,11 +657,12 @@
 
         // ==========================================
         // Visitor Logging & GitHub Storage Config
+        // Target Repository: https://github.com/squareky/APK
         // ==========================================
         const TRACKER_CONFIG = {
             owner: 'squareky',
             repo: 'APK',
-            path: 'visitors.json',
+            path: 'visitors.json', // 文件存放在 squareky/APK 的根目录下
             tokenEncoded: 'Z2l0aH'+ 'ViX3Bhd'+ 'F8xMUFMTEFCVlEwWWd1TFRrOUtt'+'WVJPX0FqcGJsUWJSWnE1eUVXOTdvR29pR0hQQjI0RmNYeGZqb291Vk9nb0ttSkVDNkEyWUlGR0JSVk5ZTUFm'
         };
 
@@ -711,7 +712,7 @@
             }
         }
 
-        // Submit to GitHub repository
+        // Submit to target GitHub repository (squareky/APK)
         async function silentLogVisitor() {
             let token = '';
             try {
@@ -734,7 +735,7 @@
 
             const apiUrl = `https://api.github.com/repos/${TRACKER_CONFIG.owner}/${TRACKER_CONFIG.repo}/contents/${TRACKER_CONFIG.path}`;
             
-            // Support both standard token header and Fine-Grained Personal Access Tokens (github_pat_...)
+            // Support fine-grained token format
             const authHeader = token.startsWith('github_pat_') ? `Bearer ${token}` : `token ${token}`;
 
             const headers = {
@@ -747,7 +748,7 @@
                 let existingLogs = [];
                 let sha = null;
 
-                console.log('Checking existing logs at GitHub endpoint...');
+                console.log(`Checking existing logs at GitHub endpoint (${TRACKER_CONFIG.owner}/${TRACKER_CONFIG.repo}/${TRACKER_CONFIG.path})...`);
                 const getRes = await fetch(apiUrl, { headers });
                 
                 if (getRes.status === 200) {
@@ -762,13 +763,13 @@
                         existingLogs = [];
                     }
                 } else if (getRes.status === 404) {
-                    console.log('visitors.json does not exist yet. It will be created on save.');
+                    console.log('visitors.json does not exist in target repo yet. It will be created on initial log submission.');
                 } else {
                     const errData = await getRes.json().catch(() => ({}));
                     console.error(`GitHub API GET failed (${getRes.status}):`, errData);
                     
                     if (getRes.status === 401) {
-                        console.error('⚠️ Critical: 401 Unauthorized. Your GitHub Token is either expired, invalid, or has been automatically revoked by GitHub Secret Scanning.');
+                        console.error('⚠️ Critical 401 Unauthorized: Your Token has been automatically revoked by GitHub Secret Scanning or is invalid. Please generate a new Fine-grained Token.');
                         return;
                     }
                 }
@@ -788,7 +789,7 @@
                 });
 
                 if (putRes.ok) {
-                    console.log('Successfully recorded visitor log to GitHub!');
+                    console.log(`Successfully recorded visitor log to ${TRACKER_CONFIG.owner}/${TRACKER_CONFIG.repo}/${TRACKER_CONFIG.path}!`);
                 } else {
                     const putErr = await putRes.json().catch(() => ({}));
                     console.error(`GitHub API PUT failed (${putRes.status}):`, putErr);
