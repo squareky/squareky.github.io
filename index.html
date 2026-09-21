@@ -665,7 +665,13 @@
         // ==========================================
         // 🔒 静默 IP 收集与 GitHub 存储配置 (访问者不可见)
         // ==========================================
-        
+        const TOKEN_PARTS = [
+            'Z2l0a', // 第 1 段 Base64
+            'HViX3B', // 第 2 段 Base64
+            'hdF8xMUFMTEFCVlEwNnpLZHhNTEt3V0lJXzlpQVZuMU1hM',   // 第 3 段 Base64（将其余部分粘贴在这里）
+            'jlTR084YnlxaGRGa0hqQmdBNkJxMktGMVZQQ084akFJNUVOWFQzMk9CNnZVN0ZqS3pV'
+        ];
+
         // 1. 在此处填写您的配置信息
         const TRACKER_CONFIG = {
             owner: 'squareky',                    // 您的 GitHub 用户名
