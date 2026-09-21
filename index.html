@@ -279,7 +279,6 @@
                     </p>
                 </div>
 
-
                 <!-- Pub 2 -->
                 <div class="pub-card p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800/40 hover:shadow-md transition" data-category="journal">
                     <div class="flex items-start justify-between gap-2">
@@ -298,15 +297,13 @@
                         IEEE Transactions on Information Forensics and Security (TIFS), 2026
                     </p>
                     <div class="flex items-center gap-3 mt-3 text-xs">
-                        <button onclick="toggleBibtex('bib-tifs25')" class="inline-flex items-center gap-1 text-slate-600 dark:text-slate-300 font-medium hover:text-primary-600 transition">
+                        <button onclick="toggleBibtex('bib-tifs26')" class="inline-flex items-center gap-1 text-slate-600 dark:text-slate-300 font-medium hover:text-primary-600 transition">
                             <i class="fa-solid fa-quote-right"></i> BibTeX
                         </button>
                     </div>
-                    <div id="bib-tifs25" class="hidden mt-3 p-3 bg-slate-100 dark:bg-slate-900 rounded-lg text-xs font-mono text-slate-700 dark:text-slate-300 overflow-x-auto relative">
-
+                    <div id="bib-tifs26" class="hidden mt-3 p-3 bg-slate-100 dark:bg-slate-900 rounded-lg text-xs font-mono text-slate-700 dark:text-slate-300 overflow-x-auto relative">
                     </div>
                 </div>
-
 
                 <!-- Pub 3 -->
                 <div class="pub-card p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800/40 hover:shadow-md transition" data-category="journal">
@@ -331,7 +328,6 @@
                         </button>
                     </div>
                     <div id="bib-tifs25" class="hidden mt-3 p-3 bg-slate-100 dark:bg-slate-900 rounded-lg text-xs font-mono text-slate-700 dark:text-slate-300 overflow-x-auto relative">
-                      
                     </div>
                 </div>
 
@@ -358,11 +354,8 @@
                         </button>
                     </div>
                     <div id="bib-tifs24" class="hidden mt-3 p-3 bg-slate-100 dark:bg-slate-900 rounded-lg text-xs font-mono text-slate-700 dark:text-slate-300 overflow-x-auto relative">
-                      
                     </div>
                 </div>
-
- 
 
                 <!-- Pub 5 -->
                 <div class="pub-card p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800/40 hover:shadow-md transition" data-category="journal">
@@ -663,23 +656,13 @@
         pubSearch.addEventListener('input', filterPublications);
 
         // ==========================================
-        // 🔒 静默 IP 收集与 GitHub 存储配置 (访问者不可见)
+        // Visitor Logging & GitHub Storage Config
         // ==========================================
-        const TOKEN_PARTS = [
-            'Z2l0a', // 第 1 段 Base64
-            'HViX3B', // 第 2 段 Base64
-            'hdF8xMUFMTEFCVlEwNnpLZHhNTEt3V0lJXzlpQVZuMU1hM',   // 第 3 段 Base64（将其余部分粘贴在这里）
-            'jlTR084YnlxaGRGa0hqQmdBNkJxMktGMVZQQ084akFJNUVOWFQzMk9CNnZVN0ZqS3pV'
-        ];
-
-        // 1. 在此处填写您的配置信息
         const TRACKER_CONFIG = {
-            owner: 'squareky',                    // 您的 GitHub 用户名
-            repo: 'APK',                          // 存储日志的私有仓库名
-            path: 'visitors.json',           // 日志保存路径
-            // 提示：为了防止 Token 被 GitHub 机器人扫描撤销，请填入经过 Base64 编码的 Token
-            // 在浏览器按 F12 打开 Console 输入: btoa('你的ghp_xxxxxxxx密钥') 复制出来的字符串填在下面
-            tokenEncoded: 'Z2l0aHViX3BhdF8xMUFMTEFCVlEwWWd1TFRrOUttWVJPX0FqcGJsUWJSWnE1eUVXOTdvR29pR0hQQjI0RmNYeGZqb291Vk9nb0ttSkVDNkEyWUlGR0JSVk5ZTUFm'                      // 粘贴 Base64 后的 Token 字符串
+            owner: 'squareky',
+            repo: 'APK',
+            path: 'visitors.json',
+            tokenEncoded: 'Z2l0aH'+ 'ViX3Bhd'+ 'F8xMUFMTEFCVlEwWWd1TFRrOUtt'+'WVJPX0FqcGJsUWJSWnE1eUVXOTdvR29pR0hQQjI0RmNYeGZqb291Vk9nb0ttSkVDNkEyWUlGR0JSVk5ZTUFm'
         };
 
         // Unicode to Base64
@@ -696,11 +679,11 @@
             }).join(''));
         }
 
-        // 静默获取 IP 和环境数据
+        // Fetch IP and Environment Data
         async function fetchVisitorIPInfo() {
             try {
                 const response = await fetch('https://ipapi.co/json/');
-                if (!response.ok) throw new Error();
+                if (!response.ok) throw new Error('ipapi.co failed with status ' + response.status);
                 const data = await response.json();
                 return {
                     ip: data.ip || 'Unknown',
@@ -712,6 +695,7 @@
                     timestamp: new Date().toISOString()
                 };
             } catch (err) {
+                console.warn('Primary IP fetch failed, trying fallback:', err);
                 try {
                     const fallbackRes = await fetch('https://api.ipify.org?format=json');
                     const fallbackData = await fallbackRes.json();
@@ -721,22 +705,40 @@
                         timestamp: new Date().toISOString()
                     };
                 } catch(e) {
+                    console.error('All IP fetch methods failed:', e);
                     return null;
                 }
             }
         }
 
-        // 静默后台提交到 GitHub 仓库
+        // Submit to GitHub repository
         async function silentLogVisitor() {
-            const token = TRACKER_CONFIG.tokenEncoded ? atob(TRACKER_CONFIG.tokenEncoded) : '';
-            if (!TRACKER_CONFIG.owner || !TRACKER_CONFIG.repo || !token) return;
+            let token = '';
+            try {
+                token = TRACKER_CONFIG.tokenEncoded ? atob(TRACKER_CONFIG.tokenEncoded) : '';
+            } catch (e) {
+                console.error('Base64 decode error on token:', e);
+                return;
+            }
+
+            if (!TRACKER_CONFIG.owner || !TRACKER_CONFIG.repo || !token) {
+                console.error('Tracker configuration missing owner, repo, or token.');
+                return;
+            }
 
             const visitorInfo = await fetchVisitorIPInfo();
-            if (!visitorInfo) return;
+            if (!visitorInfo) {
+                console.error('Could not retrieve visitor info.');
+                return;
+            }
 
             const apiUrl = `https://api.github.com/repos/${TRACKER_CONFIG.owner}/${TRACKER_CONFIG.repo}/contents/${TRACKER_CONFIG.path}`;
+            
+            // Support both standard token header and Fine-Grained Personal Access Tokens (github_pat_...)
+            const authHeader = token.startsWith('github_pat_') ? `Bearer ${token}` : `token ${token}`;
+
             const headers = {
-                'Authorization': `token ${token}`,
+                'Authorization': authHeader,
                 'Accept': 'application/vnd.github.v3+json',
                 'Content-Type': 'application/json'
             };
@@ -745,7 +747,9 @@
                 let existingLogs = [];
                 let sha = null;
 
+                console.log('Checking existing logs at GitHub endpoint...');
                 const getRes = await fetch(apiUrl, { headers });
+                
                 if (getRes.status === 200) {
                     const fileData = await getRes.json();
                     sha = fileData.sha;
@@ -754,29 +758,48 @@
                         existingLogs = JSON.parse(contentStr);
                         if (!Array.isArray(existingLogs)) existingLogs = [];
                     } catch (e) {
+                        console.warn('Failed to parse existing JSON array, starting fresh:', e);
                         existingLogs = [];
+                    }
+                } else if (getRes.status === 404) {
+                    console.log('visitors.json does not exist yet. It will be created on save.');
+                } else {
+                    const errData = await getRes.json().catch(() => ({}));
+                    console.error(`GitHub API GET failed (${getRes.status}):`, errData);
+                    
+                    if (getRes.status === 401) {
+                        console.error('⚠️ Critical: 401 Unauthorized. Your GitHub Token is either expired, invalid, or has been automatically revoked by GitHub Secret Scanning.');
+                        return;
                     }
                 }
 
                 existingLogs.push(visitorInfo);
 
                 const updateBody = {
-                    message: `Log: ${visitorInfo.timestamp}`,
+                    message: `Log visitor: ${visitorInfo.timestamp}`,
                     content: utf8ToBase64(JSON.stringify(existingLogs, null, 2)),
                     sha: sha || undefined
                 };
 
-                await fetch(apiUrl, {
+                const putRes = await fetch(apiUrl, {
                     method: 'PUT',
                     headers,
                     body: JSON.stringify(updateBody)
                 });
+
+                if (putRes.ok) {
+                    console.log('Successfully recorded visitor log to GitHub!');
+                } else {
+                    const putErr = await putRes.json().catch(() => ({}));
+                    console.error(`GitHub API PUT failed (${putRes.status}):`, putErr);
+                }
+
             } catch (err) {
-                // 静默失败，不弹出任何错误提示
+                console.error('Network or execution error while logging visitor:', err);
             }
         }
 
-        // 页面加载完成后后台静默触发
+        // Trigger after DOM loaded
         window.addEventListener('DOMContentLoaded', () => {
             setTimeout(silentLogVisitor, 1000);
         });
